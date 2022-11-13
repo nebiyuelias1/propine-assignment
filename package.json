@@ -2,7 +2,9 @@
   "name": "propine-assignment",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "bin": {
+    "propine": "dist/index.js"
+  },
   "scripts": {
     "start": "tsc && node dist/index.js",
     "lint": "eslint . --ext .ts --fix",
