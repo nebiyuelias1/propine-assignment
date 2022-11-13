@@ -47,6 +47,10 @@ propine portfolio --token BTC --date 10/19/2019
 
 ## Design Decisions
 - I used TypeScript for the project to get type safety. The **tsc** compiler transpiles the TS code to JS.
+- I used [ESLint](https://eslint.org/) for linting the code. Use this command to run linting:
+```
+npm run lint
+```
 - Since the CSV file that needs to be parsed is really huge (almost 1GB), I have to use a read steam. Then parse each line of the file one by one excluding the header. The implementation of this is found inside this [file](https://github.com/nebiyuelias1/propine-assignment/blob/main/src/utils/read-csv.ts). The implementation of this file has been tested using the [Jest](https://jestjs.io/) testing framework. The testing can be found inside this [file](https://github.com/nebiyuelias1/propine-assignment/blob/main/src/tests/utils/read-csv.test.ts). I have a smaller CSV file for test fixture. The __readCSV__ function returns a promise (```Promise<TokenTransaction>```).
 - I used the [nanospinner](https://www.npmjs.com/package/nanospinner) package to show a spinner while asynchronous operations are under progress. This avoids the illusion the program has frozen while doing operations. Specially while parsing the CSV file it can take some time to finish.
 - I used to [yargs](https://github.com/yargs/yargs) package to parse command line arguments. It displays a nice usage message automatically without additional work.
